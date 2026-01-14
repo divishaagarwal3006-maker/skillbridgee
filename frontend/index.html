@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkillBridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>SkillBridge – Micro Internships</h1>
+
+<div class="box">
+    <h2>Register Student</h2>
+    <input id="sname" placeholder="Student Name">
+    <input id="sskill" placeholder="Skill">
+    <button onclick="addStudent()">Register</button>
+</div>
+
+<div class="box">
+    <h2>Add Company Task</h2>
+    <input id="company" placeholder="Company">
+    <input id="title" placeholder="Task Title">
+    <input id="tskill" placeholder="Required Skill">
+    <button onclick="addTask()">Add Task</button>
+</div>
+
+<div class="box">
+    <h2>Available Tasks</h2>
+    <button onclick="viewTasks()">View Tasks</button>
+    <ul id="taskList"></ul>
+</div>
+
+<div class="box">
+    <h2>Apply for Task</h2>
+    <input id="applySkill" placeholder="Your Skill">
+    <input id="taskId" placeholder="Task ID">
+    <button onclick="applyTask()">Apply</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
