@@ -1,0 +1,122 @@
+[9:26 am, 14/01/2026] Divisha Agarwal: <!DOCTYPE html>
+<html>
+<head>
+    <title>SkillBridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>SkillBridge – Micro Internships</h1>
+
+<div class="box">
+    <h2>Register Student</h2>
+    <input id="sname" placeholder="Student Name">
+    <input id="sskill" placeholder="Skill">
+    <button onclick="addStudent()">Register</button>
+</div>
+
+<div class="box">
+    <h2>Add Company Task</h2>
+    <input id="company" placeholder="Company">
+    <input id="title" placeholder="Task Title">
+    <input id="tskill" placeholder="Required Skill">
+    <button onclick="addTask()">Add Task</button>
+</div>
+
+<div class="box">
+    <h2>Available Tasks</h2>
+    <button onclick="viewTasks()">View Tasks</button>
+    <ul id="taskList"></ul>
+</div>
+
+<div class="box">
+    <h2>Apply for Task</h2>
+    <input id="applySkill" placeholder="Your Skill">
+    <input id="taskId" placeholder="Task ID">
+    <button onclick="applyTask()">Apply</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+ body {
+    font-family: Arial;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.box {
+    background: white;
+    padding: 15px;
+    margin: 15px auto;
+    width: 300px;
+    border-radius: 8px;
+}
+
+input {
+    display: block;
+    margin: 5px auto;
+    padding: 6px;
+    width: 90%;
+}
+
+button {
+    padding: 8px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+let tasks = [];
+
+function addStudent() {
+    alert("Student Registered Successfully!");
+}
+
+function addTask() {
+    let company = document.getElementById("company").value;
+    let title = document.getElementById("title").value;
+    let skill = document.getElementById("tskill").value;
+
+    tasks.push({
+        id: tasks.length + 1,
+        company,
+        title,
+        skill
+    });
+
+    alert("Task Added!");
+}
+
+function viewTasks() {
+    let list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach(t => {
+        let li = document.createElement("li");
+        li.innerText = ${t.id}. ${t.company} - ${t.title} (${t.skill});
+        list.appendChild(li);
+    });
+}
+
+function applyTask() {
+    let skill = document.getElementById("applySkill").value;
+    let id = document.getElementById("taskId").value;
+
+    let task = tasks[id - 1];
+
+    if (!task) {
+        alert("Invalid Task ID");
+        return;
+    }
+
+    if (skill === task.skill) {
+        alert("Application Successful!");
+    } else {
+        alert("Skill Mismatch!");
+    }
+}
